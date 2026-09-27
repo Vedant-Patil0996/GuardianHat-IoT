@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../core/theme/app_colors.dart';
 import '../providers/providers.dart';
 import 'screens/dashboard_screen.dart';
+import 'screens/charts_screen.dart';
 import 'screens/alerts_screen.dart';
 import 'screens/settings_screen.dart';
 import 'widgets/fall_alert_overlay.dart';
@@ -24,6 +25,7 @@ class _AppShellState extends ConsumerState<AppShell> {
 
   final _screens = const [
     DashboardScreen(),
+    ChartsScreen(),
     AlertsScreen(),
     SettingsScreen(),
   ];
@@ -87,6 +89,11 @@ class _AppShellState extends ConsumerState<AppShell> {
             icon: Icon(Icons.shield_outlined),
             selectedIcon: Icon(Icons.shield),
             label: 'Home',
+          ),
+          const NavigationDestination(
+            icon: Icon(Icons.show_chart_outlined),
+            selectedIcon: Icon(Icons.show_chart),
+            label: 'Charts',
           ),
           NavigationDestination(
             icon: Badge(

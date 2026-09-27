@@ -75,6 +75,44 @@ final alertStreamProvider = StreamProvider<AlertData>((ref) {
 final latestTelemetryProvider =
     StateProvider<TelemetryData>((ref) => TelemetryData.empty);
 
+/// Holds a rolling history of the last 60 telemetry snapshots (for charts).
+final telemetryHistoryProvider =
+    StateNotifierProvider<TelemetryHistoryNotifier, List<TelemetryData>>(
+  (ref) {
+    final notifier = TelemetryHistoryNotifier();
+    // Listen to the live stream and add points
+    ref.listen<AsyncValue<TelemetryData>>(
+      telemetryStreamProvider,
+      (previous, next) {
+        if (next.hasValue && next.value != null && next.value != TelemetryData.empty) {
+          notifier.addPoint(next.value!);
+        } else if (next.hasValue && next.value == TelemetryData.empty) {
+          notifier.clear();
+        }
+      },
+    );
+    return notifier;
+  },
+);
+
+class TelemetryHistoryNotifier extends StateNotifier<List<TelemetryData>> {
+  static const int maxPoints = 60; // 60 seconds of history at 1Hz
+
+  TelemetryHistoryNotifier() : super([]);
+
+  void addPoint(TelemetryData data) {
+    if (state.length >= maxPoints) {
+      state = [...state.skip(1), data];
+    } else {
+      state = [...state, data];
+    }
+  }
+
+  void clear() {
+    state = [];
+  }
+}
+
 /// Holds the full alert history list.
 final alertHistoryProvider =
     StateNotifierProvider<AlertHistoryNotifier, List<AlertData>>(

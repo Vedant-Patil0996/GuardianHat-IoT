@@ -185,7 +185,9 @@ GuardianHat-IoT/
 
 ## 👥 Contributors & Acknowledgements
 
-- **Vedant Patil** — [GitHub Profile](https://github.com/Vedant-Patil0996)
+- **Vedant Patil** — [@Vedant-Patil0996](https://github.com/Vedant-Patil0996)
+- **Aditya Nair** — [@Patientzero0](https://github.com/Aditya-Nair1)
+- **Ankit Prasad** — [@AnkitPrasad-Java](https://github.com/AnkitPrasad-Java)
 - **GuardianHat IoT Team**
 
 ---
