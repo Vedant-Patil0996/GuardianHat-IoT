@@ -1,23 +1,17 @@
-# GuardianHat - Mobile App
+# guardian_hat
 
-Companion mobile application for the Smart Hat IoT ecosystem.
+A new Flutter project.
 
-## Overview
+## Getting Started
 
-Provides real-time telemetry tracking, sensor status monitoring, push notifications, and emergency alerts from GuardianHat devices.
+This project is a starting point for a Flutter application.
 
-## Planned Structure
+A few resources to get you started if this is your first Flutter project:
 
-```
-mobile_app/
-├── pubspec.yaml
-├── lib/
-│   ├── main.dart
-│   ├── core/              # Constants, themes, network config
-│   ├── models/            # TelemetryData, AlertPayload mappings
-│   ├── services/          # MqttService, NotificationService
-│   ├── state/             # State management (Riverpod/Provider)
-│   └── ui/                # UI screens, dials, radar & alert views
-├── assets/                # Animations, SVGs, sound effects
-└── README.md
-```
+- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
+- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
