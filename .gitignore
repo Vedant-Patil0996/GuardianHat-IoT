@@ -1,0 +1,37 @@
+# Config & Secrets
+**/config.h
+*.env
+*.key
+
+# PlatformIO & Embedded
+.pio
+.pioenvs
+.piolibdeps
+firmware/.pio/
+firmware/.pioenvs/
+firmware/.piolibdeps/
+firmware/include/config.h
+
+# Arduino / C++ Build artifacts
+*.o
+*.elf
+*.bin
+*.hex
+
+# Flutter / Dart
+mobile_app/.dart_tool/
+mobile_app/.flutter-plugins
+mobile_app/.flutter-plugins-dependencies
+mobile_app/.packages
+mobile_app/build/
+mobile_app/ios/Flutter/Generated.xcconfig
+mobile_app/ios/Flutter/flutter_export_environment.sh
+mobile_app/android/local.properties
+
+# IDE & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
