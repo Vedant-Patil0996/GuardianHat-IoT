@@ -15,6 +15,7 @@ import '../components/section_header.dart';
 import '../components/surface_card.dart';
 import '../components/status_pill.dart';
 import '../widgets/device_visualization.dart';
+import '../widgets/live_clock.dart';
 import '../widgets/telemetry_dial.dart';
 import '../widgets/tilt_visualizer.dart';
 
@@ -98,7 +99,7 @@ class DashboardScreen extends ConsumerWidget {
                   child: Center(
                     child: TiltVisualizer(
                       angle: telemetry.angle,
-                      maxAngle: 90,
+                      maxAngle: 180,
                     ),
                   ),
                 ),
@@ -247,6 +248,7 @@ class DashboardScreen extends ConsumerWidget {
             ],
           ),
         ),
+        const LiveClock(),
         LiveIndicator(state: connectionState),
       ],
     );

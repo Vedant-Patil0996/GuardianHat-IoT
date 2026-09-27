@@ -15,13 +15,13 @@ class TiltVisualizer extends StatelessWidget {
   const TiltVisualizer({
     super.key,
     required this.angle,
-    this.maxAngle = 90.0,
+    this.maxAngle = 180.0,
   });
 
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder<double>(
-      tween: Tween<double>(end: angle.clamp(0, maxAngle)),
+      tween: Tween<double>(end: angle.clamp(-maxAngle, maxAngle)),
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeOutCubic,
       builder: (context, animatedAngle, _) {
@@ -115,8 +115,9 @@ class _TiltPainter extends CustomPainter {
     );
 
     _drawLabel(canvas, '0°', Offset(center.dx + radius - 8, center.dy + 4), labelStyle);
-    _drawLabel(canvas, '45°', Offset(center.dx + diag - 4, center.dy - diag + 4), labelStyle);
     _drawLabel(canvas, '90°', Offset(center.dx - 8, center.dy - radius + 2), labelStyle);
+    _drawLabel(canvas, '-90°', Offset(center.dx - 12, center.dy + radius - 10), labelStyle);
+    _drawLabel(canvas, '±180°', Offset(center.dx - radius + 2, center.dy + 4), labelStyle);
 
     // ── Tilting indicator line ──
     final angleRad = angle * pi / 180;
@@ -132,7 +133,7 @@ class _TiltPainter extends CustomPainter {
       center.dy + lineLength * sin(-angleRad + pi / 2) * 0.3,
     );
 
-    final isWarning = angle > 45;
+    final isWarning = angle.abs() > 45;
     final lineColor = isWarning ? AppColors.warning : AppColors.accent;
 
     canvas.drawLine(

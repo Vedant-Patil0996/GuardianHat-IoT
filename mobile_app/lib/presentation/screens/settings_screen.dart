@@ -11,6 +11,7 @@ import '../../data/models/connection_state.dart';
 import '../../providers/providers.dart';
 import '../components/surface_card.dart';
 import '../components/status_pill.dart';
+import '../widgets/live_clock.dart';
 
 /// Settings screen — MQTT configuration, app info, and mock mode toggle.
 class SettingsScreen extends ConsumerWidget {
@@ -33,7 +34,13 @@ class SettingsScreen extends ConsumerWidget {
                 height: MediaQuery.of(context).padding.top > 0
                     ? AppSpacing.lg
                     : AppSpacing.xl),
-            Text('Settings', style: AppTextStyles.headlineLarge),
+            Row(
+              children: [
+                Text('Settings', style: AppTextStyles.headlineLarge),
+                const Spacer(),
+                const LiveClock(),
+              ],
+            ),
             const SizedBox(height: AppSpacing.xxl),
 
             // ── Connection Status ──

@@ -6,6 +6,7 @@ import '../../core/theme/app_text_styles.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../providers/providers.dart';
 import '../widgets/alert_history_tile.dart';
+import '../widgets/live_clock.dart';
 
 /// Alert history screen — shows a chronological list of fall-detection events.
 class AlertsScreen extends ConsumerWidget {
@@ -32,6 +33,7 @@ class AlertsScreen extends ConsumerWidget {
                 children: [
                   Text('Alerts', style: AppTextStyles.headlineLarge),
                   const Spacer(),
+                  const LiveClock(),
                   if (alerts.isNotEmpty)
                     TextButton(
                       onPressed: () {
