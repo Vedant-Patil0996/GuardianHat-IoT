@@ -17,6 +17,7 @@ firmware/include/config.h
 *.elf
 *.bin
 *.hex
+*.zip
 
 # Flutter / Dart
 mobile_app/.dart_tool/
